@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Orçamento Pessoal - Home</title>
+      <!-- Bootstrap 5.1 -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <!-- CSS Normal -->
+      <link rel="stylesheet" href="assets/css/style.css">
+   </head>
+   <body>
+      <header>
+         <nav class="navbar navbar-light navbar-expand-md bg-primary">
+            <div class="container">
+               <a class="navbar-brand" href="#"><img src="assets/img/logo.png"></a>
+               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+               <i class="fa-solid fa-bars-staggered fa-xl text-white"></i>
+               </button>
+               <div class="offcanvas offcanvas-end text-center" tabindex="-1" id="offcanvasNavbar"
+                  aria-labelledby="offcanvasNavbarLabel">
+                  <div class="offcanvas-header bg-primary">
+                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Orçamento Pessoal</h5>
+                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close">
+                     <i class="fa-solid fa-xmark fa-2x"></i>
+                     </button>
+                  </div>
+                  <div class="offcanvas-body">
+                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                     <li class="nav-item">
+                        <a class="nav-link text-white homeLink" aria-current="page" href="#">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link text-white consultaLink" href="#">Link</a>
+                     </li>
+                  </div>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <!-- Principal -->
+      <main>
+         <!-- Inserir despesas -->
+         <section class="container registrarDespesas">
+            <div class="text-dark text-center display-4">
+               Registro de novas despesas
+            </div>
+            <div class="container-fluid">
+               <div class="row justify-content-center text-center">
+                  <div class="col-xl-2">
+                     <div class="container-fluid">
+                        <select class="form-select" id="ano">
+                           <option selected value="">Ano</option>
+                           <option value="2023">2023</option>
+                           <option value="2024">2024</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-xl-2">
+                     <div class="container-fluid">
+                        <select class="form-select" id="mes">
+                           <option selected value="">Mês</option>
+                           <option value="1">Janeiro</option>
+                           <option value="2">Fevereiro</option>
+                           <option value="3">Março</option>
+                           <option value="4">Abril</option>
+                           <option value="5">Maio</option>
+                           <option value="6">Junho</option>
+                           <option value="7">Julho</option>
+                           <option value="8">Agosto</option>
+                           <option value="9">Setembro</option>
+                           <option value="10">Outubro</option>
+                           <option value="11">Novembro</option>
+                           <option value="12">Dezembro</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-xl-2">
+                     <div class="container-fluid">
+                        <div class="input-group">
+                           <input type="number" id="diaNumber" class="form-control" placeholder="Dia" aria-label="Dia"
+                              aria-describedby="basic-addon1">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-4">
+                     <div class="container-fluid">
+                        <select class="form-select" id="tipoDespesas">
+                           <option selected value="">Tipo</option>
+                           <option value="educação">Educação</option>
+                           <option value="lazer">Lazer</option>
+                           <option value="investimento">Investimento</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row justify-content-center text-center descricaoArea">
+                  <div class="col-xl-6">
+                     <div class="container-fluid">
+                        <div class="input-group">
+                           <input type="text" class="form-control descriptionProduct" id="descricaoDespesas" placeholder="Descrição"
+                              aria-label="Descrição" aria-describedby="basic-addon1">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-2">
+                     <div class="container-fluid">
+                        <div class="input-group">
+                           <input type="number" class="form-control" placeholder="Valor gasto" id="valorDespesa" aria-label="Valor"
+                              aria-describedby="basic-addon1">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-2">
+                     <div class="container-fluid buttonAdd">
+                        <button type="button" onclick="cadastrarDespesas()" class="btn btn-primary">
+                        <i class="fa-solid fa-plus fa-xl"></i>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Despesas resultado -->
+         <section class="container resultadoDespesas">
+            <div class="row justify-content-center despesasTitulos">
+               <div class="col-lg-2">
+                  <h3 class="text-uppercase">id</h3>
+               </div>
+               <div class="col-lg-2">
+                  <h3>Descrição</h3>
+               </div>
+               <div class="col-lg-2">
+                  <h3>Dia</h3>
+               </div>
+               <div class="col-lg-2">
+                  <h3>Mês</h3>
+               </div>
+               <div class="col-lg-2">
+                  <h3>Tipo</h3>
+               </div>
+               <div class="col-lg-2">
+                  <h3>Valor</h3>
+               </div>
+            </div>
+            <div class="barra container"></div>
+         </section>
+      </main>
+      <!-- Modals -->
+      <section id="modals">
+         <!-- Modal Sucesso -->
+         <div class="modal fade" id="modalRegistroDespesa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content bg-light">
+                  <div class="modal-header">
+                     <h5 class="modal-title text-white">Despesa title!</h5>
+                  </div>
+                  <div class="modal-body text-white">
+                     <h4 class="text-center modalText">
+                        Despesa content
+                     </h4>
+                  </div>
+                  <div class="modal-footer">
+                     <button onclick="modalClicked()" type="button" class="btn btn-light" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Jquery 3.6 -->
+      <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+      <!-- JS Bootstrap 5.1 -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+         crossorigin="anonymous"></script>
+      <!-- FontAwesone -->
+      <script src="https://kit.fontawesome.com/c8eb2ed6f5.js" crossorigin="anonymous"></script>
+      <!-- JS Normal -->
+      <script src="assets/js/app.js"></script>
+   </body>
+</html>
